@@ -1,0 +1,26 @@
+<meta charset="UFT-8">
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+
+    function cuadrado(x, y, ancho, largo, color) {
+        pincel.fillStyle = color;
+        pincel.fillRect(x, y, ancho, largo);
+        pincel.strokeStyle= "black";
+        pincel.strokeRect(x,y,ancho,largo);
+
+
+    }
+    var x = 0;
+    while (x <= 600) {
+        cuadrado(0+ x , 0, 50, 50, "blue");
+        x = x + 50;
+    }
+
+
+
+
+</script>

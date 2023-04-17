@@ -1,0 +1,73 @@
+<meta charset="UFT-8">
+<input />
+<button>Ingresar dato</button>
+<script>
+
+
+
+    function pruebas() {
+        //console.log("datos");
+        console.log(datoInput.value);
+    }
+
+    function numerosAleatorios() {
+        return Math.round(Math.random() * 10);
+    }
+
+    function insertarNumeroAleatorios(cantidad) {
+        var contador = 1;
+        var listaNumeros = [];
+        while (contador <= cantidad) {
+            var numeroAleatrio = numerosAleatorios();
+            console.log(numeroAleatrio)
+            var encontrado = false;
+            if (numeroAleatrio != 0) {
+                for (var recorridoArreglo = 0; recorridoArreglo < listaNumeros.length; recorridoArreglo++) {
+                    if (numeroAleatrio == listaNumeros[recorridoArreglo]) {
+                        encontrado = true;
+                        break;
+                    }
+                }
+                if (encontrado == false) {
+                    listaNumeros.push(numeroAleatrio)
+                    contador++
+                }
+            }
+        }
+        return listaNumeros;
+
+    }
+
+    var listaNumeros = insertarNumeroAleatorios(4);
+    console.log(listaNumeros);
+
+
+
+    var datoInput = document.querySelector("input");
+    datoInput.focus();
+
+    function validarNumeros() {
+        var encontrado = false;
+        for (var recorridoArreglo = 0; recorridoArreglo < listaNumeros.length; recorridoArreglo++) {
+            if (parseInt(datoInput.value) == listaNumeros[recorridoArreglo]) {
+                alert("Adivinaste el número");
+                encontrado = true;
+                break;
+            }
+        }
+        if (encontrado == false) {
+            alert("Número equivocado");
+
+        }
+        datoInput.value = "";
+        datoInput.focus();
+
+    }
+
+
+
+
+    var accionButton = document.querySelector("button");
+    accionButton.onclick = validarNumeros;
+
+</script>
